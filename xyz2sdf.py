@@ -11,12 +11,11 @@ def number_of_lines():
 
 #finding line number of Empirical Formula:
 def empiricalformula():
-    file = open(args.out, ")
+    file = open(args.out,"r")
     lookup = 'Empirical Formula:'
     with file as myFile:
         for num, line in enumerate(myFile, 1):
-            if lookup in line:
-                ef = num
+            ef = num
     return ef
 
 #finding line number of BOND ORDERS AND VALENCIES
@@ -135,25 +134,25 @@ def main():
 
     output = readfile(args.out)
 
-	num_lines = number_of_lines():
+    num_lines = number_of_lines():
 
-	ef = empiricalformula():
+    ef = empiricalformula():
 
-	line_ef = linecache.getline("arg.out", ef)
-	words_ef = line_ef.split()
-	atoms = int(words_ef[-2])
-	atoms_matrix = np.zeros((atoms,atoms))
-	matrix = np.zeros((atoms,atoms))
+    line_ef = linecache.getline(arg.out, ef)
+    words_ef = line_ef.split()
+    atoms = int(words_ef[-2])
+    atoms_matrix = np.zeros((atoms,atoms))
+    matrix = np.zeros((atoms,atoms))
 
-	startline = start_of_bonds():
+    startline = start_of_bonds():
 
-	startatoms = start_of_atoms():
+    startatoms = start_of_atoms():
 
-	atoms_matrix = matrix_f():
+    atoms_matrix = matrix_f():
 
-	bonds = bond_array():       
+    bonds = bond_array():       
 
-	final = atom_symbol():
+    final = atom_symbol():
 
     f = open(args.sdf,"w+")
     f.write("%3.0f%3.0f%3.0f   %3.0f%3.0f%3.0f%3.0f%3.0f%3.0f%3.0f V2000\n" % (atoms,len(bonds),0,0,0,0,0,0,0,999))
